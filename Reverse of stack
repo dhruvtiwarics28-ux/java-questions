@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Solution {
+
+    public void reverseStack(Stack<Integer> s) {
+
+        if (s.isEmpty()) {
+            return;
+        }
+
+        int temp = s.pop();
+
+        reverseStack(s);
+
+        insertAtBottom(s, temp);
+    }
+
+    void insertAtBottom(Stack<Integer> s, int x) {
+
+        if (s.isEmpty()) {
+            s.push(x);
+            return;
+        }
+
+        int temp = s.pop();
+
+        insertAtBottom(s, x);
+
+        s.push(temp);
+    }
+}
